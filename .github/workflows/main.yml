@@ -1,0 +1,23 @@
+name: No Error Check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - NETHUNTER
+  pull_request:
+    branches:
+      - NETHUNTER
+
+jobs:
+  no-error:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate environment
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Ref: $GITHUB_REF_NAME"
+          echo "GitHub Actions is running without errors."
